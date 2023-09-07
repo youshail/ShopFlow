@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1032597086675",
+    "project_id": "e-commerce-app-8501a",
+    "storage_bucket": "e-commerce-app-8501a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032597086675:android:e0de5b5f2a8b78e6c28f26",
+        "android_client_info": {
+          "package_name": "com.youshail.ecommerce.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1032597086675-pd18rq0tf0rauar8k353fvvejnrgd5h6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXD0IOYGGn7WRIgTd8tvFVWeedk-ryjnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1032597086675-pd18rq0tf0rauar8k353fvvejnrgd5h6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
