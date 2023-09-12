@@ -2,4 +2,20 @@
     <string name="app_name">E-commerce_app</string>
     <string name="rightAddress">The Right Address\nFor Shopping\nAnyday</string>
     <string name="qulity">It is now very easy to reach the\nbest quality among the\nproducts on the internet!</string>
+    <string name="my_app_name">ShopFlow</string>
+    <string name="txt_btn_register">Register</string>
+    <string name="txt_btn_start">Start</string>
+    <string name="txt_btn_login">Login</string>
+    <string name="blury_background_img">blury_background_img</string>
+    <string name="let_s_login">Let\'s Login</string>
+    <string name="don_t_have_account_register_now">Don\'t have account? Register now</string>
+    <string name="email">Email</string>
+    <string name="Password">Password</string>
+    <string name="Fotget_Password">Fotget Password?</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="let_s_register">Let\'s Register</string>
+    <string name="do_have_account_log_in">do you have an account? log in</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
 </resources>
