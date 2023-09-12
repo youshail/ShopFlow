@@ -18,15 +18,15 @@
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/vertical_guideline_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.09" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/vertical_guideline_end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.91" />
 
@@ -118,7 +118,7 @@
             android:hint="@string/Password"
             android:inputType="numberPassword"/>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonRegisterAccount"
             android:layout_width="0dp"
             android:layout_height="@dimen/mediumButtonHeight"
@@ -127,7 +127,9 @@
             app:layout_constraintStart_toStartOf="@id/vertical_guideline_start"
             app:layout_constraintEnd_toEndOf="@+id/vertical_guideline_end"
             android:layout_marginTop="@dimen/smallMargin"
-            android:text="@string/txt_btn_register"/>
+            android:text="@string/txt_btn_register"
+            app:spinning_bar_color="@color/white"
+            />
 
         <ImageView
             android:id="@+id/iv_facebook_login"
@@ -135,7 +137,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/facebook_login"
             app:layout_constraintStart_toStartOf="@+id/vertical_guideline_start"
-            app:layout_constraintTop_toBottomOf="@+id/buttonLoginAccount"
+            app:layout_constraintTop_toBottomOf="@+id/buttonRegisterAccount"
             android:layout_marginTop="@dimen/smallMargin"
             android:contentDescription="facebook_login" />
 
@@ -153,7 +155,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/google_login"
-            app:layout_constraintTop_toBottomOf="@+id/buttonLoginAccount"
+            app:layout_constraintTop_toBottomOf="@+id/buttonRegisterAccount"
             app:layout_constraintEnd_toStartOf="@id/vertical_guideline_end"
             android:layout_marginTop="@dimen/smallMargin"
             android:contentDescription="google_login" />
