@@ -59,7 +59,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_app_name" />
 
         <TextView
-            android:id="@+id/tvDonTHaveAccount"
+            android:id="@+id/tvIHaveAccount"
             style="@style/h2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/edittextHeight"
             app:layout_constraintStart_toStartOf="@id/vertical_guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/tvDonTHaveAccount"
+            app:layout_constraintTop_toBottomOf="@id/tvIHaveAccount"
             app:layout_constraintEnd_toEndOf="@id/vertical_guideline_end"
             style="@style/editText"
             android:layout_marginTop="@dimen/mediumMargin"

@@ -58,7 +58,7 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonStart"
+            android:id="@+id/buttonRegisterOption"
             style="@style/blueButtonStyle"
             android:layout_width="@dimen/mediumButtonWidth"
             android:layout_height="@dimen/mediumButtonHeight"
@@ -71,13 +71,13 @@
             app:layout_constraintVertical_bias="0.35" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonLoginAccountOptions"
+            android:id="@+id/buttonLoginAccountOption"
             android:layout_width="@dimen/mediumButtonWidth"
             android:layout_height="@dimen/mediumButtonHeight"
             style="@style/whiteButtonStyle"
-            app:layout_constraintTop_toBottomOf="@id/buttonStart"
-            app:layout_constraintStart_toStartOf="@id/buttonStart"
-            app:layout_constraintEnd_toEndOf="@id/buttonStart"
+            app:layout_constraintTop_toBottomOf="@id/buttonRegisterOption"
+            app:layout_constraintStart_toStartOf="@id/buttonRegisterOption"
+            app:layout_constraintEnd_toEndOf="@id/buttonRegisterOption"
             android:layout_marginTop="10dp"
             android:text="@string/txt_btn_login"/>
 

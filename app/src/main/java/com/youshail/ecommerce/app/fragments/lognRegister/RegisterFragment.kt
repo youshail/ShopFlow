@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.youshail.ecommerce.app.R
 import com.youshail.ecommerce.app.data.User
 import com.youshail.ecommerce.app.databinding.FragmentRegisterBinding
@@ -48,6 +49,10 @@ class RegisterFragment: Fragment(R.layout.fragment_register) {
                 val password = edPassword.text.toString().trim()
 
                 registerViewModel.createAccountWithEmailAndPassword(user,password)
+            }
+
+            tvIHaveAccount.setOnClickListener {
+                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
             }
         }
 

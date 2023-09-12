@@ -107,7 +107,7 @@
             android:text="@string/Fotget_Password"
             android:layout_marginTop="@dimen/verySmallMargin"/>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonLoginAccount"
             android:layout_width="0dp"
             android:layout_height="@dimen/mediumButtonHeight"
@@ -116,7 +116,9 @@
             app:layout_constraintStart_toStartOf="@id/vertical_guideline_start"
             app:layout_constraintEnd_toEndOf="@+id/vertical_guideline_end"
             android:layout_marginTop="@dimen/smallMargin"
-            android:text="@string/txt_btn_login"/>
+            android:text="@string/txt_btn_login"
+            app:spinning_bar_color="@color/white"
+            />
 
         <ImageView
             android:id="@+id/iv_facebook_login"
