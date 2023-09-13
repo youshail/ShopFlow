@@ -11,9 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.youshail.ecommerce.app.R
 import com.youshail.ecommerce.app.activities.ShoppingActivity
 import com.youshail.ecommerce.app.databinding.FragmentLoginBinding
+import com.youshail.ecommerce.app.databinding.ResetPasswordDialogBinding
+import com.youshail.ecommerce.app.dialog.setupBottomSheetDialog
 import com.youshail.ecommerce.app.util.Resource
 import com.youshail.ecommerce.app.viewmodels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,6 +51,26 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             tvDonTHaveAccount.setOnClickListener {
                 findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            }
+
+            tvForgetPassword.setOnClickListener {
+                setupBottomSheetDialog { email ->
+                    loginViewModel.resetPassword(email)
+                }
+            }
+        }
+        lifecycleScope.launchWhenStarted {
+            loginViewModel.resetPassword.collect{
+                when(it){
+                    is Resource.Error -> {
+                        Toast.makeText(requireContext(),it.message, Toast.LENGTH_LONG).show()
+                    }
+                    is Resource.Success -> {
+                        Snackbar.make(requireView(),"Reset link was sent to your email",Snackbar.LENGTH_LONG).show()
+                    }
+
+                    else -> Unit
+                }
             }
         }
 
