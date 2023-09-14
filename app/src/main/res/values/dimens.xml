@@ -9,5 +9,8 @@
     <dimen name="mediumMargin">22dp</dimen>
     <dimen name="smallMargin">15dp</dimen>
     <dimen name="verySmallMargin">8dp</dimen>
+    <dimen name="mediumPadding">20dp</dimen>
+    <dimen name="smallPadding">10dp</dimen>
+    <dimen name="verySmallPadding">5dp</dimen>
     <dimen name="mediumButtonWidth">200dp</dimen>
 </resources>
