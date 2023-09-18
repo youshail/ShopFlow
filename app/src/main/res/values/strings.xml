@@ -27,4 +27,9 @@
     <string name="cart">Cart</string>
     <string name="profile">Profile</string>
     <string name="search_now">Search Now</string>
+    <string name="scotch_premium">Scotch Premium</string>
+    <string name="_2000">$2000</string>
+    <string name="_1600">$1600</string>
+    <string name="see_product">See product</string>
+    <string name="chair">Chair</string>
 </resources>
