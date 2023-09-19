@@ -1,5 +1,6 @@
 package com.youshail.ecommerce.app.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -12,11 +13,12 @@ import com.youshail.ecommerce.app.databinding.SpecialRvItemBinding
 class SpecialProductsAdapter: RecyclerView.Adapter<SpecialProductsAdapter.SpecialProductsViewHolder>() {
 
     inner class SpecialProductsViewHolder(private val binding: SpecialRvItemBinding): RecyclerView.ViewHolder(binding.root){
+        @SuppressLint("SetTextI18n")
         fun bind(product: Product){
             binding.apply {
                 Glide.with(itemView).load(product.images[0]).into(imageSpecialRvItem)
                 tvSpecialProductName.text = product.name
-                tvSpecialProductPrice.text = product.price.toString()
+                tvSpecialProductPrice.text = "${product.price.toString()} DH"
             }
         }
     }

@@ -9,8 +9,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.youshail.ecommerce.app.R
+import com.youshail.ecommerce.app.adapters.BestDealsAdapter
+import com.youshail.ecommerce.app.adapters.BestProductsAdapter
 import com.youshail.ecommerce.app.adapters.SpecialProductsAdapter
 import com.youshail.ecommerce.app.databinding.FragmentMainCategoryBinding
 import com.youshail.ecommerce.app.util.Resource
@@ -26,6 +29,8 @@ private const val  TAG = "Main Category Fragment"
 class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
     private lateinit var binding: FragmentMainCategoryBinding
     private lateinit var specialProductsAdapter: SpecialProductsAdapter
+    private lateinit var bestProductsAdapter: BestProductsAdapter
+    private lateinit var bestDealsAdapter: BestDealsAdapter
     private val mainCategoryViewModel by viewModels<MainCategoryViewModel>()
 
     override fun onCreateView(
@@ -42,6 +47,82 @@ class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
 
          setUpSpecialProductRV()
          fetchSpecialProduct()
+
+         setUpBestProductRV()
+         fetchBestProducts()
+
+         setUpBestDealsRV()
+         fetchBestDeals()
+    }
+
+
+
+
+    private fun setUpBestDealsRV() {
+        bestDealsAdapter = BestDealsAdapter()
+        binding.rvBestDealsProducts.apply {
+            adapter = bestDealsAdapter
+            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        }
+    }
+
+    private fun fetchBestDeals() {
+        lifecycleScope.launchWhenStarted {
+            mainCategoryViewModel.bestDeals.collectLatest {
+                when(it){
+                    is Resource.Error -> {
+                        Log.e(TAG,it.message.toString())
+                        hideLoading()
+                    }
+                    is Resource.Loading -> {
+                        showLoading()
+                    }
+                    is Resource.Success -> {
+                        bestDealsAdapter.differ.submitList(it.data)
+                        hideLoading()
+                    }
+                    else -> Unit
+                }
+            }
+        }
+    }
+
+    private fun setUpBestProductRV() {
+        bestProductsAdapter = BestProductsAdapter()
+        binding.rvBestProducts.apply {
+            adapter = bestProductsAdapter
+            layoutManager = GridLayoutManager(requireContext(),2,GridLayoutManager.VERTICAL, false)
+        }
+    }
+
+    private fun fetchBestProducts() {
+        lifecycleScope.launchWhenStarted {
+            mainCategoryViewModel.bestProduct.collectLatest {
+                when(it){
+                    is Resource.Error -> {
+                        Log.e(TAG,it.message.toString())
+                        hideLoading()
+                    }
+                    is Resource.Loading -> {
+                        showLoading()
+                    }
+                    is Resource.Success ->{
+                        bestProductsAdapter.differ.submitList(it.data)
+                        hideLoading()
+                    }
+                    else -> Unit
+                }
+            }
+        }
+    }
+
+
+    private fun setUpSpecialProductRV() {
+        specialProductsAdapter =  SpecialProductsAdapter()
+        binding.rvSpecialProducts.apply {
+            adapter = specialProductsAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
+        }
     }
 
     private fun fetchSpecialProduct() {
@@ -73,11 +154,5 @@ class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
         binding.mainCategoryProgressbar.visibility = View.GONE
     }
 
-    private fun setUpSpecialProductRV() {
-        specialProductsAdapter =  SpecialProductsAdapter()
-        binding.rvSpecialProducts.apply {
-            adapter = specialProductsAdapter
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
-        }
-    }
+
 }
