@@ -14,6 +14,7 @@ import com.youshail.ecommerce.app.databinding.ProductRvItemBinding
 
 class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProductViewHolder>() {
 
+    var onClick : ((Product) -> Unit)? = null
     inner class  BestProductViewHolder(private val binding: ProductRvItemBinding): RecyclerView.ViewHolder(binding.root){
         @SuppressLint("SetTextI18n")
         fun bind(product: Product){
@@ -61,5 +62,9 @@ class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProduct
     override fun onBindViewHolder(holder: BestProductViewHolder, position: Int) {
         val  product = differ.currentList[position]
         holder.bind(product)
+
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(product)
+        }
     }
 }

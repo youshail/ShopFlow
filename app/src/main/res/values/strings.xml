@@ -28,10 +28,16 @@
     <string name="profile">Profile</string>
     <string name="search_now">Search Now</string>
     <string name="scotch_premium">Scotch Premium</string>
-    <string name="_2000">$2000</string>
-    <string name="_1600">$1600</string>
+    <string name="_2000">2000DH</string>
+    <string name="_1600">1600DH</string>
     <string name="see_product">See product</string>
     <string name="chair">Chair</string>
     <string name="best_deals">Best deals</string>
     <string name="best_products">Best Products</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="color">Color</string>
+    <string name="size">Size</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="_2000dh">2000DH</string>
 </resources>

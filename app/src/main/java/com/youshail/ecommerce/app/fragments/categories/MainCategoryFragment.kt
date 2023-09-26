@@ -10,6 +10,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.youshail.ecommerce.app.R
@@ -18,10 +19,10 @@ import com.youshail.ecommerce.app.adapters.BestProductsAdapter
 import com.youshail.ecommerce.app.adapters.SpecialProductsAdapter
 import com.youshail.ecommerce.app.databinding.FragmentMainCategoryBinding
 import com.youshail.ecommerce.app.util.Resource
+import com.youshail.ecommerce.app.util.showBottomNavigationView
 import com.youshail.ecommerce.app.viewmodels.MainCategoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 private const val  TAG = "Main Category Fragment"
 
@@ -48,15 +49,37 @@ class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
 
          setUpSpecialProductRV()
          fetchSpecialProduct()
+        setOnClickSpecialProduct()
 
          setUpBestProductRV()
          fetchBestProducts()
+        setOnClickBestProduct()
 
          setUpBestDealsRV()
          fetchBestDeals()
+        setOnClickBestDeals()
     }
 
+    private fun setOnClickBestDeals() {
+        bestDealsAdapter.onClick = {
+           val b = Bundle().apply { putParcelable("itemProduct",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+        }
+    }
 
+    private fun setOnClickBestProduct() {
+        bestProductsAdapter.onClick = {
+            val b = Bundle().apply { putParcelable("itemProduct",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+        }
+    }
+
+    private fun setOnClickSpecialProduct() {
+        specialProductsAdapter.onClick = {
+            val b = Bundle().apply { putParcelable("itemProduct",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+        }
+    }
 
 
     private fun setUpBestDealsRV() {
@@ -159,6 +182,11 @@ class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
     }
     private fun hideLoading(){
         binding.mainCategoryProgressbar.visibility = View.GONE
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showBottomNavigationView()
     }
 
 

@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.youshail.ecommerce.app.R
 import com.youshail.ecommerce.app.adapters.BestProductsAdapter
 import com.youshail.ecommerce.app.databinding.FragmentBaseCategoryBinding
+import com.youshail.ecommerce.app.util.showBottomNavigationView
 import com.youshail.ecommerce.app.viewmodels.CategoryViewModel
 
 
@@ -36,7 +38,9 @@ open class BaseCategoryFragment: Fragment(R.layout.fragment_base_category) {
         super.onViewCreated(view, savedInstanceState)
 
         setUpOfferRv()
+        setOnClickOffer()
         setUpBestProductsRv()
+        setOnClickBestProducts()
 
 
         binding.rvOffer.addOnScrollListener(object : RecyclerView.OnScrollListener(){
@@ -55,6 +59,19 @@ open class BaseCategoryFragment: Fragment(R.layout.fragment_base_category) {
         })
     }
 
+    private fun setOnClickOffer() {
+        offerAdapter.onClick = {
+            val b = Bundle().apply { putParcelable("itemProduct",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+        }
+    }
+
+    private fun setOnClickBestProducts() {
+        bestProductsAdapter.onClick = {
+            val b = Bundle().apply { putParcelable("itemProduct",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+        }
+    }
     open fun onOfferPagingRequest() {
 
     }
@@ -92,6 +109,11 @@ open class BaseCategoryFragment: Fragment(R.layout.fragment_base_category) {
             adapter = offerAdapter
             layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showBottomNavigationView()
     }
 
 

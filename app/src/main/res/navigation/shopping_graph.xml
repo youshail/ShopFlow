@@ -10,17 +10,38 @@
         android:name="com.youshail.ecommerce.app.fragments.shopping.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_main_category"
-        />
+        >
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.youshail.ecommerce.app.fragments.shopping.SearchFragment"
-        android:label="SearchFragment" />
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.youshail.ecommerce.app.fragments.shopping.CartFragment"
-        android:label="CartFragment" />
+        android:label="CartFragment" >
+        <action
+            android:id="@+id/action_cartFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.youshail.ecommerce.app.fragments.shopping.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.youshail.ecommerce.app.fragments.shopping.ProductDetailsFragment"
+        android:label="ProductDetailsFragment"
+        tools:layout="@layout/fragment_product_details">
+        <argument
+            android:name="itemProduct"
+            app:argType="com.youshail.ecommerce.app.data.Product" />
+    </fragment>
 </navigation>
