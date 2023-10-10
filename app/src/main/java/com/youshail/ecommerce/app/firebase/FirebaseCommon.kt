@@ -55,4 +55,8 @@ class FirebaseCommon(
             onResult(null,it)
         }
     }
+
+    enum class QuantityChanging {
+        INCREASE, DECREASE
+    }
 }
